@@ -1,0 +1,44 @@
+<nav class="navigate navbar navbar-expand-xl navbar-dark">
+  <div class="navigate-container container-fluid">
+    <a class="navigate-logo navbar-brand" routerLink="/index">Центр карьеры</a>
+    <button class="navigate-burger navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navigate-box collapse navbar-collapse" id="navbarNav">
+      <ul class="navigate-menu navbar-nav w-100">
+        <li class="navigate-menu__item nav-item">
+          <a class="navigate-menu__link nav-link active" routerLink="/company">Компании</a>
+        </li>
+        <li class="navigate-menu__item nav-item">
+          <a class="navigate-menu__link nav-link active" routerLink="/role">Роли</a>
+        </li>
+        <li class="navigate-menu__item nav-item">
+          <a class="navigate-menu__link nav-link active" routerLink="/category">Категории</a>
+        </li>
+        <li class="navigate-menu__item nav-item">
+          <a class="navigate-menu__link nav-link active" routerLink="/work">Типы работы</a>
+        </li>
+        <li class="navigate-menu__item nav-item">
+          <a class="navigate-menu__link nav-link active" routerLink="/vacancy">Вакансии</a>
+        </li>
+        <li class="navigate-menu__item nav-item">
+          <a class="navigate-menu__link nav-link active" routerLink="/event">События</a>
+        </li>
+        <li class="navigate-menu__item nav-item">
+          <a class="navigate-menu__link nav-link active" routerLink="/course">Курсы</a>
+        </li>
+        <li class="navigate-menu__item nav-item">
+          <a class="navigate-menu__link nav-link active" routerLink="/news">Новости</a>
+        </li>
+        <li class="navigate-menu__item nav-item">
+          <a class="navigate-menu__link nav-link active" routerLink="/note">Записи на курсы</a>
+        </li>
+        <li class="navigate-menu__item navigate-menu__item_authorize nav-item">
+          <a class="navigate-menu__link nav-link active" *ngIf="!this.userService.getToken()" routerLink="/login">Авторизация</a>
+          <a class="navigate-menu__link nav-link active" *ngIf="this.userService.getToken()" (click)="logout()">Выход</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

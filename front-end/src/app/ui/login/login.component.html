@@ -1,0 +1,21 @@
+<main class="login">
+  <img class="login__img col-6 m-0 p-0" src="assets/img/login.jpg" alt="">
+  <div class="login-inner col-6">
+    <div class="login-box p-5">
+      <h1 class="login-title mb-5">Авторизация</h1>
+      <form class="login-form row" [formGroup]="formLogin" (ngSubmit)="login()">
+        <label class="login-form__label mb-3">Введите логин
+          <input class="login-form__input py-2 ps-2" formControlName="login" type="text" value="1"
+                 placeholder="Имя пользователя">
+        </label>
+        <label class="login-form__label mb-3">Введите пароль
+          <input class="login-form__input py-2 ps-2" formControlName="password" type="password"
+                 placeholder="Ваш пароль">
+        </label>
+        <label class="login-form__label mb-3">
+          <input class="login-form__input login-form__input_btn btn py-2" type="submit" value="Войти">
+        </label>
+      </form>
+    </div>
+  </div>
+</main>

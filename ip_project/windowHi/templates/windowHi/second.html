@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="{% static 'windowHi/img/favicon.ico' %}" type="image/x-icon">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<title>Вакансии</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark" style="background: #c24d6a; box-shadow: 1px -2px 12px 3px #000000;">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/index">Центр карьеры</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" style="margin-left: 80px;" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" href="/admin">Админ-панель</a>
+					</li>
+					<li class="nav-item mx-4">
+						<a class="nav-link active" href="/first">Компании</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="/second">Вакансии</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<h1 class="my-5 text-center">Список вакансий</h1>
+	<div class="container">
+		{% for el in vacData %}
+		<div class="alert alert-secondary my-5">
+			<h3><b>Название вакансии:</b> {{el.name}}</h3>
+			<h3><b>Описание:</b> {{el.description}}</h3>
+			<h3><b>Требования:</b> {{el.requirements}}</h3>
+			<h3><b>Условия:</b> {{el.conditions}}</h3>
+			<h3><b>Обязанности:</b> {{el.responsibilities}}</h3>
+			<h3><b>ID сферы деятельности:</b> {{el.id_category}}</h3>
+			<h3><b>ID типа работы:</b> {{el.id_work}}</h3>
+			<h3><b>ID компании:</b> {{el.id_company}}</h3>
+		</div>
+		{% endfor %}
+	</div>
+</body>
+
+</html>

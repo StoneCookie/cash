@@ -1,0 +1,83 @@
+<div class="content container-fluid">
+  <app-navigation></app-navigation>
+  <h1 class="content__title my-5 text-center">Список ролей</h1>
+  <div class="content-box table-responsive scrollbar container">
+    <label class="content-search__label" for="search">Поиск</label>
+    <input class="content-search__input form-control" id="search" type="text" aria-label="Small"
+           aria-describedby="inputGroup-sizing-sm" placeholder="Поиск по названию" [(ngModel)]="search">
+    <table class="content-table table table-sm">
+      <thead class="content-table__head">
+      <tr class="content-table__title">
+        <th class="content-table__item" scope="col" *ngFor="let item of Object.keys(role[0])">{{item}}</th>
+        <th class="content-table__item content-table__item_end">
+          <button type="button" class="content-table__btn btn content-table__btn content-table__btn_add"
+                  (click)="addRoleModal(add)">Добавить
+          </button>
+        </th>
+      </tr>
+      </thead>
+      <tbody class="content-table__body">
+      <tr class="content-table__title" *ngFor="let item of role | search:search">
+        <td class="content-table__info">{{item.id}}</td>
+        <td class="content-table__info">{{item.name}}</td>
+        <td class="content-table__info content-table__info_edit">
+          <button type="button" class="content-table__btn content-table__btn_edit btn btn__edit me-1"
+                  (click)="open(edit, item.id)">Редактировать
+          </button>
+          <button type="button" class="content-table__btn content-table__btn_del btn" (click)="delRole(item.id)">
+            Удалить
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО -->
+<ng-template #edit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Редактирование роли</h4>
+    <button type="button" class="content-table__btn content-table__btn_close close" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form [formGroup]="editModal">
+    <div class="modal-body">
+      <div *ngFor="let data of Object.keys(role[0])" class="form-group">
+        <label>{{ data }}</label>
+        <input type="text" formControlName="{{ data }}" class="form-control style-custom">
+      </div>
+    </div>
+  </form>
+  <div class="modal-footer">
+    <button type="button" class="content-table__btn content-table__btn_add btn btn-outline-success"
+            (click)="editRole()">Применить
+    </button>
+  </div>
+</ng-template>
+
+<!-- МОДАЛЬНОЕ ОКНО -->
+<ng-template #add let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Добавление роли</h4>
+    <button type="button" class="content-table__btn content-table__btn_close close" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form [formGroup]="editModal">
+    <div class="modal-body">
+      <div *ngFor="let data of Object.keys(role[0])" class="form-group">
+        <label>{{ data }}</label>
+        <input type="text" formControlName="{{ data }}" class="form-control style-custom">
+      </div>
+    </div>
+  </form>
+  <div class="modal-footer">
+    <button type="button" class="content-table__btn content-table__btn_add btn btn-outline-success" (click)="addRole()">
+      Добавить
+    </button>
+  </div>
+</ng-template>

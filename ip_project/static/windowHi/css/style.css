@@ -1,0 +1,17 @@
+.list-link {
+	list-style: none;
+	padding-left: 0;
+}
+
+.list-link a {
+	text-decoration: none;
+}
+
+.list-link li {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.list-link li:last-child {
+	margin-bottom: 0;
+}

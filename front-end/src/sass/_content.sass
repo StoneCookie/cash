@@ -1,0 +1,54 @@
+.content
+  &-search
+    &__input
+      position: sticky
+      left: 0
+      margin-bottom: 20px
+
+  &-table
+    &__item
+      &_end
+        display: flex
+        justify-content: flex-end
+        border: none
+        padding-left: 20px
+
+    &__info
+      &_edit
+        border: none
+        padding-left: 20px
+
+    &__btn
+      transition: .3s
+      box-shadow: none
+      color: #fff
+
+      &:hover
+        opacity: .75
+
+      &_add
+        border: 2px solid #4dc26b
+        background: #4dc26b
+
+      &_edit
+        background: #4d6ac2
+
+      &_del
+        background: #dc3545
+
+      &_close
+        color: #000
+        outline: none
+        border: none
+        background: none
+        margin: -1rem 0 0 auto
+        padding-top: 17px
+        opacity: .75
+
+        &:hover span
+          opacity: .5
+          transition: .3s
+
+        span
+          transition: .3s
+          font-size: 2rem

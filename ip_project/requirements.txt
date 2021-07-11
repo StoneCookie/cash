@@ -1,0 +1,4 @@
+django~=3.2.5
+django-import_export
+djangorestframework~=3.12.4
+PyJWT~=2.1.0
